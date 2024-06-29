@@ -20,6 +20,7 @@ function Project() {
   const handleClose = () => setOpen(false);
   const handleEditClose = () => setEdit(false);
   const [tableData, setTableData] = useState([]);
+  const [userId, setUserId] = useState(localStorage.getItem("userId"));
   const viewChange = () => {
     if (isCard === false) {
       setIscard(true);
@@ -34,7 +35,7 @@ function Project() {
   });
   const getAllProjects = () => {
     axiosInstance
-      .get("/project")
+      .get(`/project/byUser/${userId}`)
       .then((res) => {
         console.log(res.data);
         setTableData(res?.data);
@@ -116,7 +117,7 @@ function Project() {
       {/* ---------card setup--------------------- */}
 
       <div className="row mt-2 shadow-lg d-flex">
-        {tableData?.length &&
+        {tableData&&
           tableData?.map((item, index) => {
             return (
               <div

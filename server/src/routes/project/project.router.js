@@ -14,7 +14,7 @@ const {
 
 router.use(authMiddleware)
 router.post("/", createProject);
-router.get("/", getAllProjects);
+router.get("/byUser/:userId", getAllProjects);
 router.get("/:id", getProjectById);
 
 router.patch("/:id", updateProject);

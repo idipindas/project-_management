@@ -33,9 +33,10 @@ const projectHelper = () => {
       throw error;
     }
   };
-  const getAllprojectHelper = async () => {
+  const getAllprojectHelper = async (userId) => {
     try {
-      const projects = await projectModel.find();
+      const projects = await projectModel.find({userId:userId});
+      console.log(projects)
       return projects;
     } catch (error) {
       throw error;

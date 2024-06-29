@@ -36,7 +36,8 @@ const projectController = () => {
 
   const getAllProjects = async (req, res) => {
     try {
-      const projects = await getAllprojectHelper();
+      const userId= req?.params?.userId
+      const projects = await getAllprojectHelper(userId);
       res.status(200).json(projects);
     } catch (err) {
       res.status(500).json({ message: err.message });

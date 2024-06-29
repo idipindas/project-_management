@@ -64,7 +64,6 @@ function SignupCard() {
 
   return (
     <div className="login-card">
-      <Alert ></Alert>
       <Card
         variant="elevation"
         sx={{ background: "#ffffffd6" }}
@@ -75,10 +74,10 @@ function SignupCard() {
           <div className="row mb-4 d-flex text-center">
             <h1>Sign Up</h1>
           </div>
-          <CustomInput placeholder={"Name"} onChange={(e)=>setName(e?.target?.value)}/>
+          <CustomInput placeholder={"Name"} className='mb-3' onChange={(e)=>setName(e?.target?.value)}/>
 
           <CustomInput placeholder={"Email"} onChange={(e)=>setEmail(e?.target?.value)} />
-          <FormControl fullWidth variant="outlined" className="mt-2">
+          <FormControl fullWidth variant="outlined" className="mt-3">
             <InputLabel htmlFor="outlined-adornment-password">
               Password
             </InputLabel>
